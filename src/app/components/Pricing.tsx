@@ -29,7 +29,7 @@ export function Pricing() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/bg.jpg')", // 👈 Replace with your actual path
+          backgroundImage: "url('/pricing/2.jpeg')", // 👈 Replace with your actual path
           backgroundSize: "cover",
           backgroundPosition: "left center",
           backgroundRepeat: "no-repeat",
@@ -48,7 +48,7 @@ export function Pricing() {
       <div className="relative z-20 max-w-7xl mx-auto w-full">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 text-black drop-shadow-lg">
+          <h2 className="text-4xl sm:text-5xl tracking-tight mb-4 text-white drop-shadow-lg">
             Simple, transparent pricing
           </h2>
           <p className="text-xl text-white/75 max-w-2xl mx-auto">
@@ -61,16 +61,16 @@ export function Pricing() {
 
           {/* LEFT: empty on desktop so the cup shows, small teaser on mobile */}
           <div className="hidden lg:flex flex-col justify-center gap-6 pl-4">
-            <div className="inline-block px-4 py-1.5 bg-white/15 backdrop-blur-sm text-black rounded-full text-sm font-semibold w-fit">
+            <div className="inline-block px-4 py-1.5 bg-white/15 backdrop-blur-sm text-orange-400 rounded-full text-sm font-semibold w-fit">
               Most Popular
             </div>
-            <h3 className="text-5xl font-bold text-black drop-shadow-lg leading-tight">
+            <h3 className="text-5xl font-bold text-white drop-shadow-lg leading-tight">
               Business Website
             </h3>
             <div className="flex items-baseline gap-2">
-              <span className="text-7xl font-bold text-black drop-shadow-lg">₹5999</span>
+              <span className="text-7xl font-bold text-white drop-shadow-lg">₹5999</span>
             </div>
-            <p className="text-black/70 text-lg">One-time payment · FREE hosting included</p>
+            <p className="text-white/70 text-lg">One-time payment · FREE hosting included</p>
             <Button
               size="lg"
               className="w-fit text-lg px-10 py-6 h-auto bg-white text-orange-600 hover:bg-white/90 font-bold shadow-xl"
