@@ -13,14 +13,14 @@ const testimonials = [
     role: "Founder, Scalers Business Agency",
     content: "As a business owner, I needed a beautiful portfolio site fast. Webvidha delivered exactly what I wanted. The free hosting is a huge bonus!",
     rating: 5,
-    image: "/shilpa.jpeg"
+    image: "/ramya.png"
   },
   {
     name: "Dr. Shilpa Kotla",
     role: "Founder, Wahstays",
     content: "I was skeptical about the 48-hour promise, but they actually delivered! My students love the clean design and booking system. Highly recommend!",
     rating: 5,
-    image: '/ramya.png',
+    image: '/shilpa.jpeg',
   }
 ];
 

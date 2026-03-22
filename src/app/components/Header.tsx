@@ -214,9 +214,13 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center gap-2">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex items-center gap-2 cursor-pointer focus:outline-none"
+            >
               <img src="/logo.png" alt="Webvidha" className="h-8" />
-            </div>
+            </button>
+            
 
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-8">

@@ -68,7 +68,7 @@ export function Pricing() {
               Business Website
             </h3>
             <div className="flex items-baseline gap-2">
-              <span className="text-7xl font-bold text-white drop-shadow-lg">₹5999</span>
+              <span className="text-7xl font-bold text-white drop-shadow-lg">₹7999</span>
             </div>
             <p className="text-white/70 text-lg">One-time payment · FREE hosting included</p>
             <Button
@@ -92,7 +92,7 @@ export function Pricing() {
               </div>
               <h3 className="text-3xl font-bold text-white mb-1">Business Website</h3>
               <div className="flex items-baseline justify-center gap-2 mb-1">
-                <span className="text-5xl font-bold text-white">₹5999</span>
+                <span className="text-5xl font-bold text-white">₹7999</span>
               </div>
               <p className="text-white/65 text-sm">One-time payment · FREE hosting included</p>
             </div>

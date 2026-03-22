@@ -60,7 +60,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="tel:+919493971229" className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </a>
               </li>
@@ -71,19 +71,19 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/privacy-policy.html" className="text-muted-foreground hover:text-foreground transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Terms of Service
-                </a>
+               <a href="/terms-and-conditions.html" target="_blank" rel="noopener noreferrer">
+                Terms & Conditions
+              </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Cookie Policy
-                </a>
+                <a href="/cookie-policy.html" target="_blank" rel="noopener noreferrer">
+                      Cookie Policy
+                    </a>
               </li>
             </ul>
           </div>

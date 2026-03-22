@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Webvidha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:     #ff7a00;
+      --amber:      #ff9d2e;
+      --gold:       #ffd27a;
+      --dark:       #0e0800;
+      --brown-deep: #1a0d00;
+      --brown-mid:  #4a2e10;
+      --bg:         #faf7f4;
+      --bg-white:   #ffffff;
+      --border:     rgba(255,140,0,0.14);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'ubuntu', sans-serif;
+      background: var(--bg);
+      color: var(--brown-deep);
+      min-height: 100vh;
+    }
+
+    /* ── NAVBAR ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(14,8,0,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,140,0,0.1);
+    }
+    .nav-logo {
+      font-family: 'ubuntu', serif;
+      font-size: 22px; font-weight: 700;
+      background: linear-gradient(135deg, var(--gold), var(--amber));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; text-decoration: none;
+    }
+    .nav-back {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 13px; font-weight: 400;
+      color: rgba(255,180,80,0.65); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--amber); }
+    .nav-back svg { transition: transform 0.2s; }
+    .nav-back:hover svg { transform: translateX(-3px); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; background: var(--dark);
+      overflow: hidden; padding: 130px 24px 90px; text-align: center;
+    }
+    .hero-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 75% 65% at 50% 75%, rgba(140,55,0,0.65) 0%, rgba(60,20,0,0.3) 55%, transparent 80%);
+    }
+    .hero-glow-top {
+      position: absolute; top: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(to bottom, rgba(255,140,20,0.055), transparent);
+      pointer-events: none;
+    }
+    .hero-grain {
+      position: absolute; inset: 0; opacity: 0.04; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+    .hero-line {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,160,50,0.45), transparent);
+    }
+    .hero-tag {
+      position: relative;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,180,80,0.65); margin-bottom: 24px;
+    }
+    .hero-tag::before, .hero-tag::after {
+      content: ''; width: 28px; height: 1px; background: rgba(255,160,50,0.3);
+    }
+    .hero h1 {
+      position: relative;
+      font-family: 'ubuntu', serif;
+      font-size: clamp(42px, 8vw, 76px); font-weight: 700; line-height: 1.03;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 40%, var(--orange) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 18px;
+      animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    .hero-meta {
+      position: relative;
+      display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap;
+      font-size: 13px; color: rgba(255,190,100,0.45); letter-spacing: 0.08em;
+      animation: fadeUp 0.8s 0.15s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    .hero-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,160,50,0.4); }
+
+    /* ── AT A GLANCE CARDS ── */
+    .glance {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 24px 64px;
+    }
+    .glance-inner { max-width: 960px; margin: 0 auto; }
+    .glance-title {
+      font-family: 'ubuntu', serif;
+      font-size: clamp(22px, 4vw, 32px); font-weight: 600;
+      color: var(--brown-deep); margin-bottom: 8px;
+    }
+    .glance-sub { font-size: 14px; color: rgba(80,40,10,0.52); font-weight: 300; margin-bottom: 36px; }
+    .glance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+    }
+    .glance-card {
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px 20px;
+      background: linear-gradient(145deg, #fffaf4, #fff7ee);
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
+    }
+    .glance-card.visible { opacity: 1; transform: translateY(0); }
+    .glance-card:hover { box-shadow: 0 6px 28px rgba(255,140,0,0.1); }
+    .glance-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255,140,0,0.12), rgba(255,100,0,0.06));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 14px;
+    }
+    .glance-card-title { font-family: 'ubuntu', serif; font-size: 17px; font-weight: 600; color: var(--brown-deep); margin-bottom: 6px; }
+    .glance-card-desc { font-size: 12.5px; color: rgba(80,40,10,0.58); font-weight: 300; line-height: 1.6; }
+
+    /* ── LAYOUT ── */
+    .layout {
+      max-width: 960px; margin: 0 auto;
+      padding: 72px 24px 110px;
+      display: grid; grid-template-columns: 210px 1fr; gap: 56px; align-items: start;
+    }
+    @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+
+    /* ── SIDEBAR ── */
+    .sidebar { position: sticky; top: 80px; }
+    .sidebar-title { font-size: 10px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(150,80,20,0.55); margin-bottom: 18px; }
+    .sidebar a {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; font-weight: 400; color: rgba(80,40,10,0.5);
+      text-decoration: none; padding: 7px 0 7px 14px;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s, padding-left 0.2s; line-height: 1.45;
+    }
+    .sidebar a:hover { color: var(--orange); border-left-color: var(--orange); padding-left: 18px; }
+    .sidebar a.active { color: var(--amber); border-left-color: var(--amber); }
+
+    /* ── CONTENT ── */
+    .content-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,140,0,0.07); border: 1px solid rgba(255,140,0,0.18);
+      border-radius: 20px; padding: 7px 16px;
+      font-size: 12px; color: rgba(255,180,80,0.75); margin-bottom: 48px; letter-spacing: 0.05em;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--amber); box-shadow: 0 0 7px rgba(255,157,46,0.85);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .section { margin-bottom: 56px; opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .section.visible { opacity: 1; transform: translateY(0); }
+    .section h2 {
+      font-family: 'ubuntu', serif;
+      font-size: clamp(21px, 3vw, 28px); font-weight: 600; color: var(--brown-deep);
+      margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sec-num { font-size: 12px; font-weight: 400; color: var(--amber); letter-spacing: 0.1em; font-family: 'DM Sans', sans-serif; opacity: 0.7; }
+    .section p { font-size: 15px; line-height: 1.85; color: var(--brown-mid); margin-bottom: 16px; font-weight: 300; }
+    .section ul { list-style: none; margin: 8px 0 18px; }
+    .section ul li { font-size: 15px; line-height: 1.78; color: var(--brown-mid); font-weight: 300; padding: 5px 0 5px 24px; position: relative; }
+    .section ul li::before { content: ''; position: absolute; left: 0; top: 14px; width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(135deg, var(--amber), var(--orange)); }
+    .section a { color: var(--orange); text-decoration: none; border-bottom: 1px solid rgba(255,122,0,0.28); transition: border-color 0.2s; }
+    .section a:hover { border-color: var(--orange); }
+    .section strong { font-weight: 500; color: var(--brown-deep); }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255,150,0,0.07), rgba(255,100,0,0.04));
+      border: 1px solid rgba(255,140,0,0.2);
+      border-left: 3px solid var(--amber);
+      border-radius: 0 12px 12px 0;
+      padding: 18px 22px; margin: 20px 0;
+    }
+    .highlight-box p { margin: 0; font-size: 14px; color: rgba(80,40,10,0.7); font-style: italic; }
+
+    /* Data table */
+    .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    .data-table th {
+      text-align: left; padding: 10px 16px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(150,80,20,0.7);
+      background: rgba(255,140,0,0.06);
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table td { padding: 12px 16px; color: var(--brown-mid); font-weight: 300; border-bottom: 1px solid rgba(255,140,0,0.07); line-height: 1.5; vertical-align: top; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: rgba(255,140,0,0.025); }
+
+    /* Contact card */
+    .contact-card { background: linear-gradient(135deg, rgba(255,140,0,0.055), rgba(255,100,0,0.03)); border: 1px solid var(--border); border-radius: 14px; padding: 28px 32px; margin-top: 10px; }
+    .contact-card p { margin: 5px 0; }
+    .contact-card .name { font-size: 17px; font-weight: 500; color: var(--brown-deep); margin-bottom: 10px; }
+
+    /* Rights grid */
+    .rights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 24px; }
+    .right-item {
+      border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;
+      background: linear-gradient(145deg, #fffaf4, #fff7ee);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .right-item:hover { box-shadow: 0 4px 18px rgba(255,140,0,0.09); border-color: rgba(255,140,0,0.25); }
+    .right-icon { font-size: 20px; margin-bottom: 8px; }
+    .right-title { font-size: 13px; font-weight: 500; color: var(--brown-deep); margin-bottom: 4px; }
+    .right-desc { font-size: 12px; color: rgba(80,40,10,0.55); font-weight: 300; line-height: 1.55; }
+
+    /* ── FOOTER ── */
+    .footer { text-align: center; padding: 32px 24px; border-top: 1px solid var(--border); background: var(--bg-white); }
+    .footer p { font-size: 13px; color: rgba(80,40,10,0.4); font-weight: 300; letter-spacing: 0.03em; }
+    .footer a { color: var(--orange); text-decoration: none; }
+    .footer-links { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .footer-sep { color: rgba(80,40,10,0.25); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.6; transform:scale(1.2); } }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">Webvidha</a>
+    <a href="javascript:window.close()" onclick="if(!window.opener && history.length>1){history.back();return false;}" class="nav-back">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow-top"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-line"></div>
+    <div class="hero-tag">Privacy</div>
+    <h1>Privacy Policy</h1>
+    <div class="hero-meta">
+      <span>Webvidha</span>
+      <span class="hero-meta-dot"></span>
+      <span>Effective March 2025</span>
+      <span class="hero-meta-dot"></span>
+      <span>Hyderabad, India</span>
+    </div>
+  </header>
+
+  <!-- At a glance -->
+  <section class="glance">
+    <div class="glance-inner">
+      <h2 class="glance-title">Privacy at a Glance</h2>
+      <p class="glance-sub">A quick summary of how we handle your personal information.</p>
+      <div class="glance-grid" id="glanceGrid">
+        <div class="glance-card" style="transition-delay:0ms">
+          <div class="glance-icon">🔐</div>
+          <div class="glance-card-title">We protect your data</div>
+          <div class="glance-card-desc">Your information is secured with industry-standard measures and never sold to third parties.</div>
+        </div>
+        <div class="glance-card" style="transition-delay:80ms">
+          <div class="glance-icon">📋</div>
+          <div class="glance-card-title">Minimal collection</div>
+          <div class="glance-card-desc">We only collect data necessary to provide and improve our services.</div>
+        </div>
+        <div class="glance-card" style="transition-delay:160ms">
+          <div class="glance-icon">✋</div>
+          <div class="glance-card-title">You're in control</div>
+          <div class="glance-card-desc">You can request access, correction, or deletion of your personal data at any time.</div>
+        </div>
+        <div class="glance-card" style="transition-delay:240ms">
+          <div class="glance-icon">🇮🇳</div>
+          <div class="glance-card-title">India-based</div>
+          <div class="glance-card-desc">We operate under Indian law and comply with applicable data protection regulations.</div>
+        </div>
+        <div class="glance-card" style="transition-delay:320ms">
+          <div class="glance-icon">🍪</div>
+          <div class="glance-card-title">Cookie choice</div>
+          <div class="glance-card-desc">Non-essential cookies are opt-in. See our Cookie Policy for full details.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Contents</div>
+      <a href="#who-we-are">1. Who We Are</a>
+      <a href="#what-we-collect">2. What We Collect</a>
+      <a href="#how-we-use">3. How We Use It</a>
+      <a href="#legal-basis">4. Legal Basis</a>
+      <a href="#sharing">5. Sharing Data</a>
+      <a href="#retention">6. Data Retention</a>
+      <a href="#your-rights">7. Your Rights</a>
+      <a href="#security">8. Security</a>
+      <a href="#children">9. Children</a>
+      <a href="#third-party">10. Third-Party Links</a>
+      <a href="#changes">11. Policy Changes</a>
+      <a href="#contact">12. Contact Us</a>
+    </aside>
+
+    <!-- Content -->
+    <main>
+      <div class="content-badge">
+        <div class="badge-dot"></div>
+        Last updated: March 2025
+      </div>
+
+      <div class="section" id="who-we-are">
+        <h2><span class="sec-num">01</span> Who We Are</h2>
+        <p>Webvidha ("we", "our", or "us") is a web design and development agency based in Hyderabad, Telangana, India. We provide professional website creation services, helping businesses establish their online presence quickly and beautifully.</p>
+        <p>This Privacy Policy explains how we collect, use, store, and protect personal information when you visit our website at <a href="https://webvidha.com" target="_blank" rel="noopener">webvidha.com</a>, contact us, or use our services.</p>
+        <div class="highlight-box">
+          <p>By using our website or engaging our services, you agree to the collection and use of information as described in this policy. If you disagree, please refrain from using our website or services.</p>
+        </div>
+      </div>
+
+      <div class="section" id="what-we-collect">
+        <h2><span class="sec-num">02</span> What We Collect</h2>
+        <p>We collect two types of information — information you provide directly, and information collected automatically.</p>
+
+        <p><strong>Information you provide:</strong></p>
+        <ul>
+          <li>Name and contact details (email address, phone number)</li>
+          <li>Business name and website requirements</li>
+          <li>Messages sent via our contact form or email</li>
+          <li>Payment and billing information (processed securely via third-party payment providers)</li>
+          <li>Any content, assets, or materials you share with us for project purposes</li>
+        </ul>
+
+        <p><strong>Information collected automatically:</strong></p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Examples</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Usage data</td>
+              <td>Pages visited, time spent, clicks</td>
+              <td>Improve website performance</td>
+            </tr>
+            <tr>
+              <td>Device data</td>
+              <td>Browser type, OS, screen size</td>
+              <td>Ensure compatibility</td>
+            </tr>
+            <tr>
+              <td>IP address</td>
+              <td>Approximate geographic location</td>
+              <td>Security and analytics</td>
+            </tr>
+            <tr>
+              <td>Referral data</td>
+              <td>Source URL that brought you here</td>
+              <td>Marketing analytics</td>
+            </tr>
+            <tr>
+              <td>Cookies</td>
+              <td>Session tokens, preferences</td>
+              <td>See Cookie Policy</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>We do not collect sensitive personal data such as government IDs, financial account numbers, health data, or biometric information.</p>
+      </div>
+
+      <div class="section" id="how-we-use">
+        <h2><span class="sec-num">03</span> How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Respond to enquiries and provide our web design and development services</li>
+          <li>Process payments and manage project agreements</li>
+          <li>Send service updates, project status notifications, and invoices</li>
+          <li>Improve our website, services, and user experience</li>
+          <li>Analyse traffic and usage patterns through anonymised analytics</li>
+          <li>Comply with legal obligations and resolve disputes</li>
+          <li>Send marketing communications where you have given consent (you may opt out at any time)</li>
+        </ul>
+        <p>We will never use your information for purposes incompatible with those stated above without notifying you first.</p>
+      </div>
+
+      <div class="section" id="legal-basis">
+        <h2><span class="sec-num">04</span> Legal Basis for Processing</h2>
+        <p>We process your personal data on the following legal bases:</p>
+        <ul>
+          <li><strong>Contract performance</strong> — to fulfil our service agreements with you</li>
+          <li><strong>Legitimate interests</strong> — to improve our services, prevent fraud, and ensure website security</li>
+          <li><strong>Consent</strong> — for marketing communications and non-essential cookies (which you can withdraw at any time)</li>
+          <li><strong>Legal obligation</strong> — to comply with applicable laws and regulatory requirements</li>
+        </ul>
+      </div>
+
+      <div class="section" id="sharing">
+        <h2><span class="sec-num">05</span> Sharing Your Data</h2>
+        <p>We do not sell, rent, or trade your personal information. We may share data with trusted third parties only where necessary:</p>
+        <ul>
+          <li><strong>Service providers</strong> — hosting platforms (Vercel), analytics (Google Analytics), payment processors, and email services that assist us in operating our business</li>
+          <li><strong>Professional advisors</strong> — accountants or lawyers where legally required</li>
+          <li><strong>Law enforcement</strong> — if required by court order, legal process, or to protect our rights and the safety of others</li>
+          <li><strong>Business transfers</strong> — in the event of a merger, acquisition, or sale of business assets, your data may be transferred as part of that transaction</li>
+        </ul>
+        <p>All third-party service providers are contractually required to protect your data and use it only for the purposes we specify.</p>
+      </div>
+
+      <div class="section" id="retention">
+        <h2><span class="sec-num">06</span> Data Retention</h2>
+        <p>We retain your personal data only as long as necessary for the purposes outlined in this policy:</p>
+        <ul>
+          <li><strong>Client project data</strong> — retained for the duration of the project plus 3 years for legal and warranty purposes</li>
+          <li><strong>Contact enquiries</strong> — retained for 12 months from last contact</li>
+          <li><strong>Financial records</strong> — retained for 7 years as required by Indian tax regulations</li>
+          <li><strong>Analytics data</strong> — anonymised and retained for up to 26 months</li>
+          <li><strong>Marketing data</strong> — retained until you unsubscribe or withdraw consent</li>
+        </ul>
+        <p>When data is no longer required, it is securely deleted or anonymised.</p>
+      </div>
+
+      <div class="section" id="your-rights">
+        <h2><span class="sec-num">07</span> Your Rights</h2>
+        <p>You have the following rights regarding your personal data. To exercise any of these rights, please contact us at <a href="mailto:webvidha@gmail.com">webvidha@gmail.com</a>.</p>
+        <div class="rights-grid">
+          <div class="right-item">
+            <div class="right-icon">👁️</div>
+            <div class="right-title">Right to Access</div>
+            <div class="right-desc">Request a copy of the personal data we hold about you.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-icon">✏️</div>
+            <div class="right-title">Right to Rectification</div>
+            <div class="right-desc">Ask us to correct inaccurate or incomplete data.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-icon">🗑️</div>
+            <div class="right-title">Right to Erasure</div>
+            <div class="right-desc">Request deletion of your data where we have no legal obligation to retain it.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-icon">⛔</div>
+            <div class="right-title">Right to Object</div>
+            <div class="right-desc">Object to processing for direct marketing or based on legitimate interests.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-icon">📦</div>
+            <div class="right-title">Data Portability</div>
+            <div class="right-desc">Receive your data in a structured, machine-readable format.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-icon">🔒</div>
+            <div class="right-title">Right to Restrict</div>
+            <div class="right-desc">Ask us to limit how we use your data in certain circumstances.</div>
+          </div>
+        </div>
+        <p>We will respond to all valid requests within 30 days. There is no charge for exercising these rights in most circumstances.</p>
+      </div>
+
+      <div class="section" id="security">
+        <h2><span class="sec-num">08</span> Security</h2>
+        <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, destruction, or alteration. These measures include:</p>
+        <ul>
+          <li>HTTPS encryption on all web communications</li>
+          <li>Restricted access to personal data on a need-to-know basis</li>
+          <li>Secure storage with reputable cloud service providers</li>
+          <li>Regular review of data handling practices</li>
+        </ul>
+        <p>While we take all reasonable precautions, no method of transmission over the internet is 100% secure. In the event of a data breach affecting your rights, we will notify you promptly in accordance with applicable law.</p>
+      </div>
+
+      <div class="section" id="children">
+        <h2><span class="sec-num">09</span> Children's Privacy</h2>
+        <p>Our website and services are intended for individuals aged 18 and above. We do not knowingly collect personal information from children under the age of 18.</p>
+        <p>If you believe a child has provided us with personal information without parental consent, please contact us immediately at <a href="mailto:hello@webvidha.com">hello@webvidha.com</a> and we will promptly delete such information.</p>
+      </div>
+
+      <div class="section" id="third-party">
+        <h2><span class="sec-num">10</span> Third-Party Links</h2>
+        <p>Our website may contain links to third-party websites, social media platforms, or partner services. These links are provided for your convenience and do not constitute an endorsement.</p>
+        <p>We have no control over the content, privacy practices, or policies of third-party websites. We encourage you to review the privacy policy of any site you visit through links on our website.</p>
+      </div>
+
+      <div class="section" id="changes">
+        <h2><span class="sec-num">11</span> Changes to This Policy</h2>
+        <p>We may update this Privacy Policy periodically to reflect changes in our practices, technology, or legal requirements. When we make material changes, we will update the "Last updated" date at the top of this page.</p>
+        <p>We encourage you to review this policy regularly. Your continued use of our website after any changes constitutes acceptance of the updated policy. For significant changes, we may also notify active clients directly by email.</p>
+      </div>
+
+      <div class="section" id="contact">
+        <h2><span class="sec-num">12</span> Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your personal data, please contact us:</p>
+        <div class="contact-card">
+          <p class="name">Webvidha — Privacy Team</p>
+          <p>Hyderabad, Telangana, India</p>
+          <p>Email: <a href="mailto:webvidha@gmail.com">webvidha@gmail.com</a></p>
+          <p>Website: <a href="https://webvidha.com" target="_blank" rel="noopener">webvidha.com</a></p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <p>© 2025 Webvidha. All rights reserved.</p>
+      <span class="footer-sep">·</span>
+      <a href="terms-and-conditions.html" target="_blank">Terms &amp; Conditions</a>
+      <span class="footer-sep">·</span>
+      <a href="cookie-policy.html" target="_blank">Cookie Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-reveal for sections
+    const secObs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.07 }
+    );
+    document.querySelectorAll('.section').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 35}ms`;
+      secObs.observe(el);
+    });
+
+    // Scroll-reveal for glance cards
+    const cardObs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.glance-card').forEach(el => cardObs.observe(el));
+
+    // Active sidebar highlight on scroll
+    const sections = document.querySelectorAll('.section');
+    const links    = document.querySelectorAll('.sidebar a');
+    const activate = () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+    };
+    window.addEventListener('scroll', activate, { passive: true });
+    activate();
+  </script>
+</body>
+</html>

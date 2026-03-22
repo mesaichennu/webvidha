@@ -3,6 +3,7 @@ import { Badge } from "./ui/badge";
 import { Clock, Zap, Shield } from "lucide-react";
 import { useState, useEffect } from "react";
 
+// 👇 Replace these with your actual 4 PNG image paths
 const personImages = [
   "/Doctor_web.png",
   "/Female_Website.png",
@@ -17,11 +18,15 @@ export function Hero() {
   const [current, setCurrent] = useState(0);
   const [visible, setVisible] = useState(true);
 
+  const isMobile = window.innerWidth < 768; 
+
   useEffect(() => {
     const interval = setInterval(() => {
+      // Fade out
       setVisible(false);
       setTimeout(() => {
         setCurrent((prev) => (prev + 1) % personImages.length);
+        // Fade in
         setVisible(true);
       }, 400);
     }, 3000);
@@ -31,8 +36,9 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-screen pt-30 pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className={`relative min-h-screen ${isMobile ? "pt-10" : "pt-30"} pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden`}
       style={{
+        // Maroon-to-orange gradient matching your screenshot
         background: "linear-gradient(135deg, #3d0a0a 0%, #7a1a0a 25%, #b83010 55%, #d45020 75%, #c87840 100%)",
       }}
     >
@@ -47,7 +53,7 @@ export function Hero() {
 
       {/* Main layout: left text + right image */}
       <div className="relative z-20 max-w-7xl mx-auto min-h-[calc(100vh-128px)] flex items-center">
-
+        
         {/* LEFT: Text content */}
         <div className="w-full lg:w-1/2 pr-0 lg:pr-12">
           <Badge
@@ -57,8 +63,7 @@ export function Hero() {
             <Zap className="w-3.5 h-3.5 mr-2 inline-block" />
             Launch your website in 48 hours
           </Badge>
-
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-6 text-white">
+<h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-6 text-white">
             Professional websites for all businesses,{" "}
             <span className="bg-gradient-to-r from-orange-300 via-yellow-200 to-orange-300 bg-clip-text text-transparent">
               delivered fast
@@ -66,7 +71,7 @@ export function Hero() {
           </h1>
 
           <p className="text-xl text-white/75 mb-10">
-            Get a modern, mobile-friendly website for your business in just 48 hours.
+            Get a modern, mobile-friendly website for your business in just *48 hours.
             No technical knowledge required. FREE hosting included.
           </p>
 
@@ -102,62 +107,64 @@ export function Hero() {
           </div>
         </div>
 
-        {/* RIGHT: Rotating person PNG — Desktop fixed size container */}
-        <div className="hidden lg:flex w-1/2 items-end justify-center relative"
-          style={{ height: "580px" }}
-        >
+        {/* RIGHT: Rotating person PNG */}
+        <div className="hidden lg:flex w-1/2 items-end justify-center relative h-[calc(101vh-128px)]">
           {personImages.map((src, i) => (
             <img
               key={i}
               src={src}
               alt={`Website example ${i + 1}`}
-              className="absolute bottom-0 select-none transition-all duration-500"
+              className="absolute bottom-0 w-auto max-h-full object-contain select-none transition-all duration-500"
               style={{
-                width: "420px",
-                height: "560px",
-                objectFit: "contain",
-                objectPosition: "bottom",
                 opacity: i === current ? (visible ? 1 : 0) : 0,
                 transform: i === current
                   ? visible
                     ? "translateY(0) scale(1)"
                     : "translateY(20px) scale(0.97)"
                   : "translateY(20px) scale(0.97)",
+                maxHeight: "85vh",
+                // Remove the black background from PNGs
                 mixBlendMode: "normal",
               }}
               draggable={false}
             />
           ))}
+
+          {/* Dot indicators below image */}
+          {/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+            {personImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setVisible(false);
+                  setTimeout(() => {
+                    setCurrent(i);
+                    setVisible(true);
+                  }, 300);
+                }}
+                className={`transition-all rounded-full ${
+                  i === current
+                    ? "w-6 h-2 bg-white"
+                    : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                }`}
+                aria-label={`Show image ${i + 1}`}
+              />
+            ))}
+          </div> */}
         </div>
       </div>
 
-      {/* Mobile: fixed size side by side */}
-      <div className="lg:hidden relative z-20 flex items-end justify-end"
-        style={{
-          position: "absolute",
-          bottom: 0,
-          right: "16px",
-          width: "160px",
-          height: "240px",
-        }}
-      >
+      {/* Mobile: show current image below content */}
+      <div className="lg:hidden relative z-20 mt-8 flex justify-center">
         {personImages.map((src, i) => (
           <img
             key={i}
             src={src}
             alt={`Website example ${i + 1}`}
-            className="absolute bottom-0 right-0 select-none transition-all duration-500"
+            className="absolute w-64 object-contain transition-all duration-500"
             style={{
-              width: "160px",
-              height: "240px",
-              objectFit: "contain",
-              objectPosition: "bottom",
               opacity: i === current ? (visible ? 1 : 0) : 0,
-              transform: i === current
-                ? visible
-                  ? "translateY(0) scale(1)"
-                  : "translateY(12px) scale(0.97)"
-                : "translateY(12px) scale(0.97)",
+              position: i === current ? "relative" : "absolute",
             }}
             draggable={false}
           />

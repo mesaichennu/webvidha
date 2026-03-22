@@ -69,7 +69,7 @@ const projects = [
   {
     title: 'Dr.Shilpa Kotla',
     category: 'Personal business website',
-    image: '/portfolio/shilpa.jpg',
+    image: '/portfolio/shilpa.png',
     tags: ['responsive design', 'SEO', 'Tailwind', 'Vite'],
     link: 'https://drshilpakotla.com/',    
     description: 'Personal business website with engaging animations and a vibrant visual identity.',
