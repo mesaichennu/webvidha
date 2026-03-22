@@ -157,7 +157,7 @@ const SECTIONS: CookieSection[] = [
           <p><strong>Webvidha</strong></p>
           <p>Hyderabad, Telangana, India</p>
           <p>Email: <a href="mailto:hello@webvidha.com">hello@webvidha.com</a></p>
-          <p>Website: <a href="https://webvidha-five.vercel.app" target="_blank" rel="noopener noreferrer">webvidha-five.vercel.app</a></p>
+          <p>Website: <a href="https://webvidha.com" target="_blank" rel="noopener noreferrer">webvidha.com</a></p>
         </div>
       </>
     ),
