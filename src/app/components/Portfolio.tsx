@@ -87,7 +87,6 @@ const projects = [
 
 ];
 
-const ALL_FILTERS = ['All', 'E-Commerce', 'Booking App', 'Corporate', 'EdTech', 'Beauty & Lifestyle'];
 
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
