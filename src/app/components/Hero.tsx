@@ -269,7 +269,7 @@ export function Hero() {
 
       {/* Mobile carousel */}
       <div
-        className="lg:hidden relative z-20 mt-8 mx-auto"
+        className="lg:hidden relative z-20 mt-0 mx-auto"
         style={{ overflow: "hidden", height: "280px", width: "256px", position: "relative" }}
       >
         <img
@@ -282,7 +282,7 @@ export function Hero() {
           src={personImages[displayNext]}
           alt={`Person ${displayNext}`}
           draggable={false}
-          style={{ ...mobileNextStyle, height: "100%", objectFit: "contain" } as React.CSSProperties}
+          style={{ ...mobileNextStyle, height: "110%", objectFit: "contain" } as React.CSSProperties}
         />
       </div>
     </section>
