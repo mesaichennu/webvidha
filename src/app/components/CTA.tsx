@@ -57,7 +57,7 @@ export function CTA() {
               {/* Contact details */}
               <div className="flex flex-col gap-5">
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919493971229"
                   className="flex items-center gap-4 group"
                 >
                   <div className="w-12 h-12 rounded-2xl bg-primary-foreground/15 flex items-center justify-center shrink-0 group-hover:bg-primary-foreground/25 transition-colors">
@@ -88,7 +88,7 @@ export function CTA() {
                   </div>
                   <div>
                     <p className="text-primary-foreground/60 text-xs uppercase tracking-widest font-medium">Location</p>
-                    <p className="text-primary-foreground font-semibold text-lg">Hyderabad, India</p>
+                    <p className="text-primary-foreground font-semibold text-lg">Jubliee hills, Hyderabad, India</p>
                   </div>
                 </div>
               </div>
@@ -113,11 +113,13 @@ export function CTA() {
                   className="text-lg px-8 py-6 h-auto bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground flex-1"
                   asChild
                 >
-                  <a href="tel:+919493971229">Schedule a Call</a>
+                  <a href="whatsapp://send?phone=+919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services." target="_blank" rel="noopener noreferrer">
+                    Schedule a Call
+                  </a>
                 </Button>
               </div>
 
-              <p className="text-sm text-primary-foreground/70">
+              <p className="text-m text-primary-foreground/70">
                 🎉 Limited slots available this month
               </p>
             </div>

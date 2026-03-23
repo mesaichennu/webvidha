@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, MessageCircle } from "lucide-react";
 //import logo from "figma:asset/eb5e0fb302b823fa2582a5e1ac8d0ce418ceb120.png";
 
 export function Footer() {
@@ -7,8 +7,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
+
             <div className="flex items-center gap-2 mb-4">
+               <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex items-center gap-2 cursor-pointer focus:outline-none"
+            >
               <img src='/logo.png' alt="Webvidha" className="h-8" />
+           </button>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Professional websites for small businesses, delivered in 48 hours with free hosting.
@@ -76,12 +82,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-               <a href="/terms-and-conditions.html" target="_blank" rel="noopener noreferrer">
+               <a href="/terms-and-conditions.html" target="_blank" rel="noopener noreferrer"  className="text-muted-foreground hover:text-foreground transition-colors" >
                 Terms & Conditions
               </a>
               </li>
               <li>
-                <a href="/cookie-policy.html" target="_blank" rel="noopener noreferrer">
+                <a href="/cookie-policy.html" target="_blank" rel="noopener noreferrer"  className="text-muted-foreground hover:text-foreground transition-colors" >
                       Cookie Policy
                     </a>
               </li>
@@ -96,28 +102,32 @@ export function Footer() {
           
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61576528764144"
+              target="_blank"
               className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
               aria-label="Facebook"
             >
               <Facebook className="w-4 h-4" />
             </a>
             <a
-              href="#"
+              href="whatsapp://send?phone=+919493971229"
+              target="_blank"
               className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
-              aria-label="Twitter"
+              aria-label="WhatsApp"
             >
-              <Twitter className="w-4 h-4" />
+              <MessageCircle className="w-4 h-4" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/webvidha/"
+              target="_blank"
               className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
               aria-label="Instagram"
             >
               <Instagram className="w-4 h-4" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/web-vidha-6615903b9/"
+              target="_blank"
               className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
               aria-label="LinkedIn"
             >

@@ -228,7 +228,7 @@ export function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors font-semibold"
                 >
                   {link.label}
                 </a>

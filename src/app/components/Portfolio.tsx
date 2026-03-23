@@ -7,7 +7,7 @@ const projects = [
     title: 'WahStays',
     category: 'Booking App',
     image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800',
-    tags: ['React', 'Booking System', 'Tailwind'],
+    tags: ['React', 'Booking System', 'Tailwind', "payment gateway", "real-time availability", "booking flow"],
     link: 'https://wahstays.vercel.app/',
     description: 'Hotel and stay booking web app with real-time availability and smooth UX.',
     year: '2024',
@@ -16,7 +16,7 @@ const projects = [
     title: 'VOC Infra',
     category: 'Corporate',
     image: '/portfolio/vocinfra.png',
-    tags: ['React', 'TypeScript', 'Animation', 'Vite'],
+    tags: ['React', 'TypeScript', 'Animation', 'Vite', "contact form"],
     link: 'https://vocinfra.com',
     description: 'High-performance IT company site with custom animations and fast load times.',
     year: '2024',
@@ -25,7 +25,7 @@ const projects = [
     title: 'Salient Learnings',
     category: 'EdTech',
     image: '/portfolio/edutech.png',
-    tags: ['React', 'Courses', 'AI & DeepTech', 'Tailwind'],
+    tags: ['React', 'Courses', 'AI & DeepTech', 'Tailwind', "payment gateway", "course progress tracking"],
     link: 'https://salientlearnings.com/',
     description: 'EdTech platform offering AI and deep-tech courses with structured learning paths.',
     year: '2024',
@@ -34,7 +34,7 @@ const projects = [
     title: 'Brow Crush',
     category: 'Beauty & Lifestyle',
     image: '/portfolio/browcrush.png',
-    tags: ['React', 'Tailwind', 'Vercel', 'Animation'],
+    tags: ['React', 'Tailwind', 'Vercel', 'Animation', 'booking flow'],
     link: 'https://brow-crush.vercel.app/',
     description: 'Elegant beauty studio website with smooth transitions and booking flow.',
     year: '2024',
@@ -43,7 +43,7 @@ const projects = [
     title: 'Aroma Spa',
     category: 'Beauty & Lifestyle',
     image: 'https://images.pexels.com/photos/3757952/pexels-photo-3757952.jpeg?auto=compress&cs=tinysrgb&w=800',
-    tags: ['React', 'Tailwind', 'SEO', 'CMS'],
+    tags: ['React', 'Tailwind', 'SEO', 'CMS', 'whatsapp integration'],
     link: 'https://aromaspa.in',
     description: 'Spa & wellness website with CMS integration and strong local SEO setup.',
     year: '2024',
@@ -52,7 +52,7 @@ const projects = [
     title: 'Astroping',
     category: 'Corporate',
     image: '/portfolio/astroping.png',
-    tags: ['React', 'Tailwind', 'Animation', 'Vite'],
+    tags: ['React', 'Tailwind', 'Animation', 'Vite', 'payment gateway', 'login system'],
     link: 'https://astroping.com',
     description: 'Astrology platform with engaging animations and a vibrant visual identity.',
     year: '2024',
@@ -61,7 +61,7 @@ const projects = [
     title: 'Oakland School',
     category: 'EdTech',
     image: '/portfolio/school.jpg',
-    tags: ['React', 'Tailwind', 'SEO', 'CMS'],
+    tags: ['React', 'Tailwind', 'SEO', 'CMS', "admin dashboard", "login system"],
     link: 'https://www.oaklandschool.in/',
     description: 'School website with admissions, events, and CMS-managed content pages.',
     year: '2024',
@@ -76,12 +76,12 @@ const projects = [
     year: '2024',
   },
   {
-    title: 'FreshCuts',
-    category: 'E-Commerce',
-    image: '/portfolio/freshcuts.png',
-    tags: ['React', 'Node.js', 'MongoDB', 'Admin Dashboard'],
-    link: 'https://fresh-cuts.vercel.app/',
-    description: 'Full-stack e-commerce platform with inventory management and admin dashboard.',
+    title: 'Kalapeksha',
+    category: 'Corporate',
+    image: '/portfolio/kalapeksha.png',
+    tags: ['React', 'Node.js', 'MongoDB', 'Admin Dashboard', 'Booking System'],
+    link: 'https://kalapeksha.com/',
+    description: 'Corporate website for an art gallery with a custom CMS and booking system for events.',
     year: '2024',
   },
 
@@ -329,7 +329,7 @@ export function Portfolio() {
         <div className="text-center mt-16">
           <p className="text-sm text-slate-400 mb-4">Got a project in mind? Let's build it.</p>
           <a
-            href="#contact"
+            href="whatsapp://send?phone=+919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services.%20about%20your%20services."
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm text-white cta-btn"
             style={{
               background: '#FF6B35',

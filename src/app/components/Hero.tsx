@@ -1,48 +1,158 @@
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import { Clock, Zap, Shield } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-// 👇 Replace these with your actual 4 PNG image paths
 const personImages = [
-  "/Doctor_web.png",
-  "/Female_Website.png",
-  "/cheif.png",
-  "/businessman.png",
-  "/engineer.png",
-  "/teacher.png",
-  "/plumber.png"
+  "/hero/doctor.png",
+  "/hero/cheif.png",
+  "/hero/store.png",
+  "/hero/businesswomen.png",
+  "/hero/product.png",
+  "/hero/engineer.png",
+  "/hero/teacher.png",
+  "/hero/technision.png",
+
+ 
 ];
 
-export function Hero() {
-  const [current, setCurrent] = useState(0);
-  const [visible, setVisible] = useState(true);
+const SLIDE_DURATION = 600; // ms — how long the slide animation takes
+const HOLD_DURATION  = 3000; // ms — how long each image is held before sliding
 
-  const isMobile = window.innerWidth < 768; 
+export function Hero() {
+  // currentRef is the source of truth for the active index —
+  // never goes stale inside setInterval/setTimeout closures
+  const currentRef = useRef(0);
+  const slidingRef = useRef(false);
+
+  // State only used to trigger re-renders
+  const [displayCurrent, setDisplayCurrent] = useState(0);
+  const [displayNext,    setDisplayNext]    = useState(1);
+  const [isSliding,      setIsSliding]      = useState(false);
+
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Fade out
-      setVisible(false);
-      setTimeout(() => {
-        setCurrent((prev) => (prev + 1) % personImages.length);
-        // Fade in
-        setVisible(true);
-      }, 400);
-    }, 3000);
+    const slide = () => {
+      // If already mid-slide, skip this tick
+      if (slidingRef.current) return;
 
+      const curr = currentRef.current;
+      const next = (curr + 1) % personImages.length;
+
+      // Prepare next image in position (off-screen right), no animation yet
+      setDisplayCurrent(curr);
+      setDisplayNext(next);
+
+      // Small rAF delay so React flushes the above state before animation starts
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          slidingRef.current = true;
+          setIsSliding(true); // triggers CSS transition
+
+          setTimeout(() => {
+            // Animation done — commit new current, reset sliding state
+            currentRef.current = next;
+            setDisplayCurrent(next);
+            setDisplayNext((next + 1) % personImages.length);
+            setIsSliding(false);
+            slidingRef.current = false;
+          }, SLIDE_DURATION + 20);
+        });
+      });
+    };
+
+    const interval = setInterval(slide, HOLD_DURATION + SLIDE_DURATION);
     return () => clearInterval(interval);
+    // ✅ Empty deps — interval is set once and never recreated.
+    // currentRef.current is always fresh inside the closure.
   }, []);
+
+  const EASING = "cubic-bezier(0.42, 0, 0.18, 1)";
+
+  // Current image: sits at 0, then slides out to -110% when isSliding
+  const currentWrapStyle: React.CSSProperties = {
+    position: "absolute",
+    inset: 0,
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "center",
+    transform: isSliding ? "translateX(-112%)" : "translateX(0%)",
+    opacity: isSliding ? 0.25 : 1,
+    transition: isSliding
+      ? `transform ${SLIDE_DURATION}ms ${EASING}, opacity ${SLIDE_DURATION}ms ease`
+      : "none",
+    zIndex: 1,
+    willChange: "transform",
+  };
+
+  // Next image: parked at +110% off-screen, slides in to 0 when isSliding
+  const nextWrapStyle: React.CSSProperties = {
+    position: "absolute",
+    inset: 0,
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "center",
+    transform: isSliding ? "translateX(0%)" : "translateX(112%)",
+    opacity: isSliding ? 1 : 0,
+    transition: isSliding
+      ? `transform ${SLIDE_DURATION}ms ${EASING}, opacity ${SLIDE_DURATION}ms ease`
+      : "none",
+    zIndex: 2,
+    willChange: "transform",
+  };
+
+  const imgStyle: React.CSSProperties = {
+    width: "auto",
+    maxHeight: "85vh",
+    objectFit: "contain",
+    userSelect: "none",
+    pointerEvents: "none",
+    display: "block",
+  };
+
+  // Mobile equivalents
+  const mobileCurrentStyle: React.CSSProperties = {
+    position: "absolute",
+    bottom: 0,
+    left: "50%",
+    transform: isSliding
+      ? "translateX(calc(-50% - 112%))"
+      : "translateX(-50%)",
+    opacity: isSliding ? 0.25 : 1,
+    transition: isSliding
+      ? `transform ${SLIDE_DURATION}ms ${EASING}, opacity ${SLIDE_DURATION}ms ease`
+      : "none",
+    width: "256px",
+    objectFit: "contain",
+    zIndex: 1,
+  };
+
+  const mobileNextStyle: React.CSSProperties = {
+    position: "absolute",
+    bottom: 0,
+    left: "50%",
+    transform: isSliding
+      ? "translateX(-50%)"
+      : "translateX(calc(-50% + 112%))",
+    opacity: isSliding ? 1 : 0,
+    transition: isSliding
+      ? `transform ${SLIDE_DURATION}ms ${EASING}, opacity ${SLIDE_DURATION}ms ease`
+      : "none",
+    width: "256px",
+    objectFit: "contain",
+    zIndex: 2,
+  };
 
   return (
     <section
       className={`relative min-h-screen ${isMobile ? "pt-10" : "pt-30"} pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden`}
       style={{
-        // Maroon-to-orange gradient matching your screenshot
-        background: "linear-gradient(135deg, #3d0a0a 0%, #7a1a0a 25%, #b83010 55%, #d45020 75%, #c87840 100%)",
+        background:
+          "linear-gradient(135deg, #3d0a0a 0%, #7a1a0a 25%, #b83010 55%, #d45020 75%, #c87840 100%)",
       }}
     >
-      {/* Subtle texture overlay for depth */}
+      {/* Depth overlay */}
       <div
         className="absolute inset-0 z-0 opacity-20"
         style={{
@@ -51,10 +161,10 @@ export function Hero() {
         }}
       />
 
-      {/* Main layout: left text + right image */}
+      {/* Main layout */}
       <div className="relative z-20 max-w-7xl mx-auto min-h-[calc(100vh-128px)] flex items-center">
-        
-        {/* LEFT: Text content */}
+
+        {/* LEFT: Text */}
         <div className="w-full lg:w-1/2 pr-0 lg:pr-12">
           <Badge
             variant="secondary"
@@ -63,7 +173,8 @@ export function Hero() {
             <Zap className="w-3.5 h-3.5 mr-2 inline-block" />
             Launch your website in 48 hours
           </Badge>
-<h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-6 text-white">
+
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-6 text-white">
             Professional websites for all businesses,{" "}
             <span className="bg-gradient-to-r from-orange-300 via-yellow-200 to-orange-300 bg-clip-text text-transparent">
               delivered fast
@@ -77,15 +188,23 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Button
+              onClick={() =>
+                window.open(
+                  "whatsapp://send?phone=+919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services.",
+                  "_blank",
+                  "noopener noreferrer"
+                )
+              }
               size="lg"
-              className="text-md px-6 py-6 h-12 bg-white text-gray-900 hover:bg-white/90 font-semibold shadow-lg"
+              className="text-md px-6 py-6 h-12 bg-white text-gray-900 hover:bg-white/90 font-semibold shadow-lg cursor-pointer"
             >
               Start Your Website
             </Button>
             <Button
+              onClick={() => (window.location.href = "#portfolio")}
               size="lg"
               variant="outline"
-              className="text-lg px-6 py-6 h-12 border-white/40 text-orange-400 hover:bg-white/10 backdrop-blur-sm"
+              className="text-lg px-6 py-6 h-12 border-white/40 text-orange-400 hover:bg-white/10 backdrop-blur-sm cursor-pointer"
             >
               View Examples
             </Button>
@@ -107,68 +226,64 @@ export function Hero() {
           </div>
         </div>
 
-        {/* RIGHT: Rotating person PNG */}
-        <div className="hidden lg:flex w-1/2 items-end justify-center relative h-[calc(101vh-128px)]">
-          {personImages.map((src, i) => (
+        {/* RIGHT: Carousel — desktop */}
+        <div
+          className="hidden lg:flex w-1/2 items-end justify-center relative h-[calc(101vh-128px)]"
+          style={{ overflow: "hidden" }}
+        >
+          {/* Current → exits left */}
+          <div style={currentWrapStyle}>
             <img
-              key={i}
-              src={src}
-              alt={`Website example ${i + 1}`}
-              className="absolute bottom-0 w-auto max-h-full object-contain select-none transition-all duration-500"
-              style={{
-                opacity: i === current ? (visible ? 1 : 0) : 0,
-                transform: i === current
-                  ? visible
-                    ? "translateY(0) scale(1)"
-                    : "translateY(20px) scale(0.97)"
-                  : "translateY(20px) scale(0.97)",
-                maxHeight: "85vh",
-                // Remove the black background from PNGs
-                mixBlendMode: "normal",
-              }}
+              src={personImages[displayCurrent]}
+              alt={`Person ${displayCurrent}`}
+              style={imgStyle}
               draggable={false}
             />
-          ))}
+          </div>
 
-          {/* Dot indicators below image */}
+          {/* Next → enters from right */}
+          <div style={nextWrapStyle}>
+            <img
+              src={personImages[displayNext]}
+              alt={`Person ${displayNext}`}
+              style={imgStyle}
+              draggable={false}
+            />
+          </div>
+
+          {/* Dot indicators */}
           {/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
             {personImages.map((_, i) => (
-              <button
+              <div
                 key={i}
-                onClick={() => {
-                  setVisible(false);
-                  setTimeout(() => {
-                    setCurrent(i);
-                    setVisible(true);
-                  }, 300);
-                }}
-                className={`transition-all rounded-full ${
-                  i === current
+                className={`rounded-full transition-all duration-300 ${
+                  i === (isSliding ? displayNext : displayCurrent)
                     ? "w-6 h-2 bg-white"
-                    : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                    : "w-2 h-2 bg-white/40"
                 }`}
-                aria-label={`Show image ${i + 1}`}
               />
             ))}
           </div> */}
         </div>
       </div>
 
-      {/* Mobile: show current image below content */}
-      <div className="lg:hidden relative z-20 mt-8 flex justify-center">
-        {personImages.map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            alt={`Website example ${i + 1}`}
-            className="absolute w-64 object-contain transition-all duration-500"
-            style={{
-              opacity: i === current ? (visible ? 1 : 0) : 0,
-              position: i === current ? "relative" : "absolute",
-            }}
-            draggable={false}
-          />
-        ))}
+      {/* Mobile carousel */}
+      <div
+        className="lg:hidden relative z-20 mt-8 mx-auto"
+        style={{ overflow: "hidden", height: "280px", width: "256px", position: "relative" }}
+      >
+        <img
+          src={personImages[displayCurrent]}
+          alt={`Person ${displayCurrent}`}
+          draggable={false}
+          style={{ ...mobileCurrentStyle, height: "100%", objectFit: "contain" } as React.CSSProperties}
+        />
+        <img
+          src={personImages[displayNext]}
+          alt={`Person ${displayNext}`}
+          draggable={false}
+          style={{ ...mobileNextStyle, height: "100%", objectFit: "contain" } as React.CSSProperties}
+        />
       </div>
     </section>
   );
