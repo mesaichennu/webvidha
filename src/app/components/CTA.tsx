@@ -113,7 +113,7 @@ export function CTA() {
                   className="text-lg px-8 py-6 h-auto bg-transparent text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground flex-1"
                   asChild
                 >
-                  <a href="whatsapp://send?phone=+919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services." target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services." target="_blank" rel="noopener noreferrer">
                     Schedule a Call
                   </a>
                 </Button>

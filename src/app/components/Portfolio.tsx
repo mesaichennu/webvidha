@@ -328,7 +328,7 @@ export function Portfolio() {
         <div className="text-center mt-16">
           <p className="text-sm text-slate-400 mb-4">Got a project in mind? Let's build it.</p>
           <a
-            href="whatsapp://send?phone=+919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services.%20about%20your%20services."
+            href="https://wa.me/919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services.%20about%20your%20services."
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm text-white cta-btn"
             style={{
               background: '#FF6B35',

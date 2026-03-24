@@ -29,7 +29,7 @@ export function Pricing() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('/pricing/2.jpeg')", // 👈 Replace with your actual path
+          backgroundImage: "url('/pricing/4.jpeg')", // 👈 Replace with your actual path
           backgroundSize: "cover",
           backgroundPosition: "left center",
           backgroundRepeat: "no-repeat",
@@ -61,7 +61,7 @@ export function Pricing() {
 
           {/* LEFT: empty on desktop so the cup shows, small teaser on mobile */}
           <div className="hidden lg:flex flex-col justify-center gap-6 pl-4">
-            <div className="inline-block px-4 py-1.5 bg-white/15 backdrop-blur-sm text-orange-400 rounded-full text-sm font-semibold w-fit">
+            <div className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm text-orange-400 rounded-full text-sm font-semibold w-fit">
               Most Popular
             </div>
             <h3 className="text-5xl font-bold text-white drop-shadow-lg leading-tight">
@@ -71,13 +71,17 @@ export function Pricing() {
               <span className="text-7xl font-bold text-white drop-shadow-lg">₹7999/-</span>
             </div>
             <p className="text-white/70 text-lg">One-time payment · FREE hosting included</p>
-            <Button
-              onClick={() => window.open("whatsapp://send?phone=+919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services.", "_blank", "noopener noreferrer")}
-              size="lg"
-              className="w-fit text-lg px-10 py-6 h-auto bg-white text-orange-600 hover:bg-white/90 font-bold shadow-xl cursor-pointer"
-            >
-              Get Started Now
-            </Button>
+           <Button
+            onClick={() => window.open(
+              "https://wa.me/919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services.",
+              "_blank",
+              "noopener noreferrer"
+            )}
+            size="lg"
+            className="w-fit text-lg px-10 py-6 h-auto bg-white text-orange-600 hover:bg-white/90 font-bold shadow-xl cursor-pointer"
+          >
+            Get Started Now
+          </Button>
             {/* <p className="text-sm text-black/60">
               🎉 First 10 customers get 20% off
             </p> */}
@@ -88,12 +92,12 @@ export function Pricing() {
 
             {/* Mobile-only header inside card */}
             <div className="lg:hidden text-center mb-6">
-              <div className="inline-block px-4 py-1.5 bg-white/20 text-white rounded-full text-sm font-semibold mb-3">
+              <div className="inline-block px-4 py-1.5 bg-white/20 text-orange-400 rounded-full text-sm font-semibold mb-3">
                 Most Popular
               </div>
               <h3 className="text-3xl font-bold text-white mb-1">Business Website</h3>
               <div className="flex items-baseline justify-center gap-2 mb-1">
-                <span className="text-5xl font-bold text-white">₹7999/</span>
+                <span className="text-5xl font-bold text-white">₹7999/-</span>
               </div>
               <p className="text-white/65 text-sm">One-time payment · FREE hosting included</p>
             </div>
@@ -102,12 +106,15 @@ export function Pricing() {
             <p className="text-white/50 text-xs uppercase tracking-widest mb-4 font-semibold">
               Everything included
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-8 font-medium">
               {[...featuresLeft, ...featuresRight].map((feature) => (
                 <li key={feature} className="flex items-start gap-2 list-none">
                   <Check className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
                   <span className="text-white/80 text-sm">{feature}</span>
+
+                  
                 </li>
+                
               ))}
             </div>
 
@@ -119,15 +126,15 @@ export function Pricing() {
               >
                 Get Started Now
               </Button>
-              <p className="text-center text-sm text-white/55 mt-4">
+              {/* <p className="text-center text-sm text-white/55 mt-4">
                 🎉 First 10 customers get 20% off
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
 
         <div className="mt-10 text-center">
-          <p className="text-white/55">
+          <p className="bg-black text-white/55 font-bold">
             Need something custom?{" "}
             <a href="#contact" className="text-orange-400 hover:underline font-semibold">
               Let's talk

@@ -73,7 +73,7 @@ export function FAQ() {
         <div className="mt-12 text-center">
           <p className="text-muted-foreground mb-4">Still have questions?</p>
           <a
-            href="whatsapp://send?phone=+919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services."
+            href="https://wa.me/919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline font-semibold"

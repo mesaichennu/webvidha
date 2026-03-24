@@ -190,7 +190,7 @@ export function Hero() {
             <Button
               onClick={() =>
                 window.open(
-                  "whatsapp://send?phone=+919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services.",
+                  "https://wa.me/919493971229?text=Hello%20I%20have%20a%20question%20about%20your%20services.",
                   "_blank",
                   "noopener noreferrer"
                 )
@@ -206,7 +206,7 @@ export function Hero() {
               variant="outline"
               className="text-lg px-6 py-6 h-12 border-white/40 text-orange-400 hover:bg-white/10 backdrop-blur-sm cursor-pointer"
             >
-              View Examples
+              View Our Work
             </Button>
           </div>
 
