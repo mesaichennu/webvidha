@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SplashScreen } from "./components/SplashScreen";
+//import { SplashScreen } from "./components/SplashScreen";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Features } from "./components/Features";
@@ -10,9 +10,11 @@ import { Testimonials } from "./components/Testimonials";
 import { FAQ } from "./components/FAQ";
 import { CTA } from "./components/CTA";
 import { Footer } from "./components/Footer";
+import { PromoModal } from "./components/PromoModal"; // add this import
+
 
 export default function App() {
-  const [showSplash, setShowSplash] = useState(true);
+ // const [showSplash, setShowSplash] = useState(true);
 
   return (
     <div className="min-h-screen bg-background">
@@ -27,13 +29,14 @@ export default function App() {
         <Pricing />
         <FAQ />
         <CTA />
+        <PromoModal />
       </main>
       <Footer />
 
       {/* Splash sits on top, unmounts only after shatter animation finishes */}
-      {showSplash && (
+      {/* {showSplash && (
         <SplashScreen onFinish={() => setShowSplash(false)} />
-      )}
+      )} */}
     </div>
   );
 }
