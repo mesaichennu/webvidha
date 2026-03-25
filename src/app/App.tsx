@@ -10,8 +10,7 @@ import { Testimonials } from "./components/Testimonials";
 import { FAQ } from "./components/FAQ";
 import { CTA } from "./components/CTA";
 import { Footer } from "./components/Footer";
-import { PromoModal } from "./components/PromoModal"; // add this import
-
+import { AdModal } from "./components/AdModal";
 
 export default function App() {
  // const [showSplash, setShowSplash] = useState(true);
@@ -21,6 +20,7 @@ export default function App() {
       {/* Home page is always mounted so it's visible behind the shatter */}
       <Header />
       <main>
+        <AdModal />
         <Hero />
         <Features />
         <HowItWorks />
@@ -29,7 +29,7 @@ export default function App() {
         <Pricing />
         <FAQ />
         <CTA />
-        <PromoModal />
+        
       </main>
       <Footer />
 
