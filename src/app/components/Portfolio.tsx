@@ -8,7 +8,7 @@ const projects = [
     category: 'Booking App',
     image: 'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['React', 'Booking System', 'Tailwind', "payment gateway", "real-time availability", "booking flow"],
-    link: 'https://wahstays.vercel.app/',
+    link: 'https://wahstays.com/',
     description: 'Hotel and stay booking web app with real-time availability and smooth UX.',
     year: '2024',
   },
