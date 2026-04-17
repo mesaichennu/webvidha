@@ -206,7 +206,7 @@ export function Hero() {
               variant="outline"
               className="text-lg px-6 py-6 h-12 border-white/40 text-orange-400 hover:bg-white/10 backdrop-blur-sm cursor-pointer"
             >
-              View Our Work
+              View Our Works
             </Button>
           </div>
 
@@ -251,19 +251,6 @@ export function Hero() {
             />
           </div>
 
-          {/* Dot indicators */}
-          {/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
-            {personImages.map((_, i) => (
-              <div
-                key={i}
-                className={`rounded-full transition-all duration-300 ${
-                  i === (isSliding ? displayNext : displayCurrent)
-                    ? "w-6 h-2 bg-white"
-                    : "w-2 h-2 bg-white/40"
-                }`}
-              />
-            ))}
-          </div> */}
         </div>
       </div>
 
