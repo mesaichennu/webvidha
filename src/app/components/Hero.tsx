@@ -182,7 +182,7 @@ export function Hero() {
           </h1>
 
           <p className="text-xl text-white/75 mb-10">
-            Get a modern, mobile-friendly website for your business in just *48 hours.
+            Get a modern, mobile-friendly website for your business in just 48 hours*.
             No technical knowledge required. FREE hosting included.
           </p>
 
