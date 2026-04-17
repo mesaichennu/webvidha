@@ -126,7 +126,7 @@ export function Footer() {
               <Instagram className="w-4 h-4" />
             </a>
             <a
-              href="https://www.linkedin.com/in/web-vidha-6615903b9/"
+              href="https://www.linkedin.com/company/webvidha/"
               target="_blank"
               className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-muted/80 transition-colors"
               aria-label="LinkedIn"
