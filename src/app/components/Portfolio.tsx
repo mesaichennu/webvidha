@@ -232,8 +232,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function Portfolio() {
   return (
-    <section className="py-24 bg-slate-50">
-      <style>{`
+<section
+  id="portfolio"
+  className="py-24 bg-slate-50 scroll-mt-24"
+>  
+    <style>{`
         .portfolio-card {
           transition: all 0.3s ease;
         }
