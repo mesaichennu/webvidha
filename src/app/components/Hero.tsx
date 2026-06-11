@@ -146,7 +146,7 @@ export function Hero() {
 
   return (
     <section
-      className={`relative min-h-screen ${isMobile ? "pt-10" : "pt-30"} pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden`}
+      className={`relative min-h-screen ${isMobile ? "pt-19" : "pt-30"} pb-0 px-4 sm:px-6 lg:px-8 overflow-hidden`}
       style={{
         background:
           "linear-gradient(135deg, #3d0a0a 0%, #7a1a0a 25%, #b83010 55%, #d45020 75%, #c87840 100%)",
