@@ -30,7 +30,7 @@ const projects: Project[] = [
     category: 'AI Studio',
     media: { type: 'video', src: '/portfolio/yudhai.mp4' },
     tags: ['React', 'Tailwind', 'Vite', 'Animation', "contact form"],
-    link: 'https://yudhai-studio.vercel.app/',
+    link: 'https://yudhai.com/',
     description: 'AI studio website with engaging animations and a vibrant visual identity.',
     year: '2026',
   },
